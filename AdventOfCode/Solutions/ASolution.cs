@@ -19,6 +19,8 @@ namespace AdventOfCode.Solutions
         public string Part1 => string.IsNullOrEmpty(_part1.Value) ? "" : _part1.Value;
         public string Part2 => string.IsNullOrEmpty(_part2.Value) ? "" : _part2.Value;
 
+        public bool skip = false;
+
         private protected ASolution(int day, int year, string title)
         {
             Day = day;
@@ -113,6 +115,7 @@ namespace AdventOfCode.Solutions
                 catch(InvalidOperationException)
                 {
                     Console.WriteLine($"Day {Day}: Cannot fetch puzzle input before given date (Eastern Standard Time).");
+                    skip = true;
                 }
             }
             return input;

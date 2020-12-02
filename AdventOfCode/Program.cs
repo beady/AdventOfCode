@@ -14,6 +14,8 @@ namespace AdventOfCode
             foreach(ASolution solution in Solutions)
             {
                 solution.Solve();
+                if (solution.skip)
+                    break;
             }
         }
     }
