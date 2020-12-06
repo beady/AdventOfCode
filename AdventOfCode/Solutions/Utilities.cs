@@ -73,9 +73,16 @@ namespace AdventOfCode.Solutions
         public static string[] SplitByNewline(this string input, bool shouldTrim = false)
         {
             return input
-                .Split(new[] { "\r", "\n", "\r\n" }, StringSplitOptions.None)
-                .Where(s => !string.IsNullOrWhiteSpace(s))
+                .Split(new[] { System.Environment.NewLine }, StringSplitOptions.None)
+                //.Where(s => !string.IsNullOrWhiteSpace(s))
                 .Select(s => shouldTrim ? s.Trim() : s)
+                .ToArray();
+        }
+
+        public static string[] SplitByBlankLines(this string input)
+        {
+            return input
+                .Split(new[] { System.Environment.NewLine + System.Environment.NewLine }, StringSplitOptions.None)
                 .ToArray();
         }
 

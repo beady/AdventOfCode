@@ -93,7 +93,7 @@ namespace AdventOfCode.Solutions
                     {
                         client.Headers.Add(HttpRequestHeader.Cookie, Program.Config.Cookie);
                         input = client.DownloadString(INPUT_URL).Trim();
-                        File.WriteAllText(INPUT_FILEPATH, input);
+                        File.WriteAllText(INPUT_FILEPATH, input.Replace("\n",System.Environment.NewLine));
                     }
                 }
                 catch(WebException e)
